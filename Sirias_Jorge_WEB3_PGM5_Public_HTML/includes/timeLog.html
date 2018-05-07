@@ -1,0 +1,92 @@
+  <!-- ***********************************************************************************
+  Page Name  : time javascript html 
+  Author     : Jorge Sirias 
+  Your URL   : ocelot-aul.fiu/~jsiri004
+  Course     : CGS 4854 WEB 3, T & TH, 7:50 - 9:05 PM
+  Program #  : Assignment #4
+  Purpose    : This page implements the time and date that can be used to track what time  
+               the user logged in at program 4.              
+ 
+  Due Date   : 4/5/2018 
+
+  Certification: 
+  I hereby certify that this work is my own and none of it is the work of any other person. 
+
+  ..........{ Jorge Sirias }..........
+ ******************************************************************************* -->
+
+
+<html>
+
+<head>
+<title>Sirias Jorge timeLogLeft</title>
+
+
+   <script>
+            
+         
+      function currentTime() 
+      {
+         var today   = new Date();
+         var hour    = today.getHours();
+         var minutes = today.getMinutes();
+         var sec     = today.getSeconds();
+      
+         minutes = checkTime(minutes);
+         sec     = checkTime(sec);
+         
+         document.getElementById('txt').innerHTML = "Current Time : "+hour+":"+minutes+":"+sec;
+      
+         var t = setTimeout(function(){currentTime()},500);
+              
+      }
+
+
+      function checkTime(i) 
+      {
+         if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+         return i;
+      }
+
+ </script>
+
+</head>
+
+<body onload="currentTime()">
+   <table align = "center" width = "100%">
+<tr>
+<td align = "left">   
+   <script>
+    
+      loggedInTime();
+             
+      var temp1;
+      
+      function loggedInTime( temp )
+      {
+         var tiempo = new Date();  
+         var temp2 =  "logged in: " + tiempo;
+         temp1 = temp2;
+         document.write( temp2 );
+      }
+
+
+      //document.write( " " + "I am next " + temp1 ); 
+
+      currentTime();
+      
+   </script>
+      
+</td>
+<td align = "right">    
+   <div id="txt"></div>
+</td>
+</tr>
+</table>
+
+</body>
+
+</html>
+
+
+

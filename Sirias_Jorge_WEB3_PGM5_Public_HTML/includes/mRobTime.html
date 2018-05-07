@@ -1,0 +1,76 @@
+<!-- =================================================================== -->
+<!-- Page Name: timeJS.html --> 
+<!-- Author:    Michael Robinson -->
+<!-- Updated:   05-31-2015 -->
+<!-- Purpose:   time samples using JavaScript -->
+
+
+<html>
+
+<head>
+<title>JavaScript Michael Robinson - FIU Research</title>
+
+
+   <script>
+            
+         
+      function currentTime() 
+      {
+         var today   = new Date();
+         var hour    = today.getHours();
+         var minutes = today.getMinutes();
+         var sec     = today.getSeconds();
+      
+         minutes = checkTime(minutes);
+         sec     = checkTime(sec);
+         
+         document.getElementById('txt').innerHTML = "Current Time : "+hour+":"+minutes+":"+sec;
+      
+         var t = setTimeout(function(){currentTime()},500);
+              
+      }
+
+
+      function checkTime(i) 
+      {
+         if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+         return i;
+      }
+
+   </script>
+
+</head>
+
+<body onload="currentTime()">
+        
+   <script>
+    
+      loggedInTime();
+             
+      var temp1;
+      
+      function loggedInTime( temp )
+      {
+         var tiempo = new Date();  
+         var temp2 =  "logged at: " + tiempo;
+         temp1 = temp2;
+         document.write( temp2 );
+      }
+
+
+      //document.write( " " + "I am next " + temp1 ); 
+
+      currentTime();
+      
+   </script>
+      
+      
+   <div id="txt"></div>
+
+
+</body>
+
+</html>
+
+
+

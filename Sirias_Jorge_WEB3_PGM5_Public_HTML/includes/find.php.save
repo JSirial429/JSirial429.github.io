@@ -1,0 +1,108 @@
+  <!-- ***********************************************************************************
+  Page Name  : Find.php 
+  Author     : Jorge Sirias
+  Your URL   : ocelot-aul.fiu/~jsiri004
+  Course     : CGS 4854 WEB 3, T & TH, 7:50-9:05 PM
+  Program #  : Assignment #3
+  Purpose    : Finds a record in the databse before deleting or modifying it. 
+
+  Due Date   : 03/22/2018 
+
+  Certification: 
+  I hereby certify that this work is my own and none of it is the work of any other person. 
+
+  ..........{Jorge Sirias}..........
+ ******************************************************************************* -->
+
+<html>
+
+  <body>
+
+    <?php
+
+      echo "find.php Telephone = [".$Telephone."]<br>";      
+      echo $lastName."<br>";
+      echo $firstName."<br>";
+      echo $email."<br>";
+      echo $requests."<br>";
+      echo $DCpublisher."<br>";
+      echo $DCcharacter."<br>";
+      echo $Mpublisher."<br>";
+      echo $Mcharacter."<br>";
+      echo $Ipublisher."<br>";
+      echo $Icharacter."<br>";
+      echo $Vpublisher."<br>";
+      echo $Vcharacter."<br>";
+      echo $DHpublisher."<br>";
+      echo $DHcharacter."<br>";
+      echo $Shipping."<br>";
+  
+      echo "find.php table: ".$tableName."<br>";
+  
+      echo "find.php found = [".$found."]"."<br>";
+
+      $found = $Telephone;
+
+      echo "find.php Found = telephone = ".$found."<br>";
+
+      $sql="SELECT * FROM Customers WHERE Telephone = '$Telephone'"; 
+
+      if ($result=mysqli_query($connection,$sql))
+      {
+
+        printf("Result of mysqli_query(connection,sql) = %d<br>", $result);
+
+        $rowCount = mysqli_num_rows($results);
+ 
+        printf("Result set has %d rows.\n",$rowcount);
+
+        while($row = mysqli_fetch_array($result))
+        {
+
+          $Telephone    = $row['Telephone'];     //primary key
+          $firstName    = $row['firstName'];     //type="text"
+          $lastName     = $row['lastName'];      //type="text"
+          $email        = $row['email'];         //type="text"
+          $requests     = $row['requests'];      //type="textarea" 
+          //$DCpublisher  = $row['DCpublisher'];   //type="checkbox"
+          //$DCcharacter  = $row['DCcharacter'];   //type="radio"
+          //$Mpublisher   = $row['Mpublisher'];    //type="checkbox" 
+          //$Mcharacter   = $row['Mcharacter'];    //type="radio"
+          //$Ipublisher   = $row['Ipublisher'];    //type="checkbox"
+          //$Icharacter   = $row['Icharacter'];    //type="radio"
+          //$Vpublisher   = $row['Vpublisher'];    //type="checkbox"
+          //$Vcharacter   = $row['Vcharacter'];    //type="radio" 
+          //$DHpublisher  = $row['DHpublisher'];   //type="checkbox"
+          //$DHcharacter  = $row['DHcharacter'];   //type="radio"
+          $Shipping     = $row['Shipping'];      //type="select"
+  
+        }
+
+          echo $Telephone; 
+          echo $firstName;   
+          echo $lastName;   
+          echo $email;        
+          echo $requests;     
+          echo $DCpublisher;  
+          echo $DCcharacter;
+          echo $Mpublisher;   
+          echo $Mcharacter;   
+          echo $Ipublisher;  
+          echo $Icharacter;   
+          echo $Vpublisher;   
+          echo $Vcharacter;   
+          echo $DHpublisher;  
+          echo $DHcharacter;  
+          echo $Shipping;  
+
+      }
+
+      echo "I'm Done. Exiting program";
+
+      $message = $Telephone;
+
+    ?>
+
+  </body>
+
+</html>
